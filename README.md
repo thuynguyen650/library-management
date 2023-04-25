@@ -9,4 +9,4 @@ Bellow is basic requirements for the system:
 4. Notifications when the desired book becomes available and reminders that a book should be returned to the library, both by email.
 
 Based on the requirements, I've designed the database for the system using Crow's foot database notation. Relationship between tables should be described as the symbols in the following image:
-image.png
+![image](https://user-images.githubusercontent.com/87921412/234423257-ca1a151f-79fd-486e-afc5-a1c049f135e3.png)
