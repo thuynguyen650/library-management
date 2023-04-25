@@ -8,5 +8,8 @@ Bellow is basic requirements for the system:
 3. Records of books checked out as well as placed on hold (i.e., "reserved" by a patron to make sure the book is there when he/she gets to the library to check it out).
 4. Notifications when the desired book becomes available and reminders that a book should be returned to the library, both by email.
 
-Based on the requirements, I've designed the database for the system using Crow's foot database notation. Relationship between tables should be described as the symbols in the following image:
-image.png
+Based on the requirements, I've designed the database for the system using Crow's foot database notation:
+....
+
+Bellow are all data models will be created later as well as the relationships between them:
+...
