@@ -9,7 +9,8 @@ Bellow is basic requirements for the system:
 4. Notifications when the desired book becomes available and reminders that a book should be returned to the library, both by email.
 
 Based on the requirements, I've designed the database for the system using Crow's foot database notation:
-....
+![image](https://user-images.githubusercontent.com/87921412/234424582-6006e71e-a860-4682-8338-07985017ba2a.png)
 
 Bellow are all data models will be created later as well as the relationships between them:
-...
+![UpdatedLibraryManagementDb](https://user-images.githubusercontent.com/87921412/234430495-cb3b8d9d-ec3b-4379-bd7e-e2fd3fcf4dc9.png)
+
