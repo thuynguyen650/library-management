@@ -1,4 +1,4 @@
-﻿using LibraryManagement.Domain.Books;
+﻿using LibraryManagement.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace LibraryManagement.Infrastructure.Persistence;
