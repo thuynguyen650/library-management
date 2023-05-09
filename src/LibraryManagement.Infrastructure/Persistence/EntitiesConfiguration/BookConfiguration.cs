@@ -17,5 +17,9 @@ public class BookConfiguration : IEntityTypeConfiguration<Book>
         builder.HasMany(book => book.BookAuthorList)
             .WithOne(bookAuthorList => bookAuthorList.Book)
             .HasForeignKey(bookAuthorList => bookAuthorList.BookId);
+
+        builder.HasMany(book => book.WaitingList)
+            .WithOne(waitingList => waitingList.Book)
+            .HasForeignKey(waitingList => waitingList.BookId);
     }
 }
