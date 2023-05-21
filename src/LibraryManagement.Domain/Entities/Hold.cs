@@ -8,9 +8,9 @@ public class Hold
 
     public BookCopy BookCopy { get; set; } = new BookCopy();
 
-    public Guid PatronId { get; set; }
+    public Guid UserId { get; set; }
 
-    public Patron Patron { get; set; } = new Patron();
+    public User User { get; set; } = new User();
 
     public DateTime StartTime { get; set; }
 

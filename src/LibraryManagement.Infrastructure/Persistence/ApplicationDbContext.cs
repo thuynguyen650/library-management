@@ -25,7 +25,7 @@ public class ApplicationDbContext : DbContext
 
     public DbSet<Notification> Notifications { get; set; }
 
-    public DbSet<Patron> Patrons { get; set; }
+    public DbSet<User> Users { get; set; }
 
     public DbSet<Publisher> Publishers { get; set; }
 

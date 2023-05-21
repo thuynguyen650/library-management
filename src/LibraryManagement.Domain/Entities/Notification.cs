@@ -7,9 +7,9 @@ public class Notification
 {
     public NotificationType NotificationType { get; set; }
 
-    public Guid PatronId { get; set; }
+    public Guid UserId { get; set; }
 
-    public Patron Patron { get; set; } = new Patron();
+    public User User { get; set; } = new User();
 
     public Guid BookCopyId { get; set; }
 

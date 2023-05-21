@@ -2,7 +2,7 @@
 
 namespace LibraryManagement.Domain.Entities;
 
-public class Patron : BaseAuditableEntity
+public class User : BaseAuditableEntity
 {
     public string FirstName { get; set; } = string.Empty;
 
@@ -10,9 +10,11 @@ public class Patron : BaseAuditableEntity
 
     public string Email { get; set; } = string.Empty;
 
-    public string CardNumber { get; set; } = string.Empty;
+    public string PhoneNumber { get; set; } = string.Empty;
 
     public bool IsActive { get; set; }
+
+    public string PasswordHash { get; set; } = string.Empty;
 
     public List<WaitingList> WaitingLists { get; set; } = new List<WaitingList>();
 

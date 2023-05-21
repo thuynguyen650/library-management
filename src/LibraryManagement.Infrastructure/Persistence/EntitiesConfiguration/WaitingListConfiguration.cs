@@ -8,6 +8,6 @@ public class WaitingListConfiguration : IEntityTypeConfiguration<WaitingList>
 {
     public void Configure(EntityTypeBuilder<WaitingList> builder)
     {
-        builder.HasKey(waitingList => new { waitingList.PatronId, waitingList.BookId });
+        builder.HasKey(waitingList => new { waitingList.UserId, waitingList.BookId });
     }
 }
