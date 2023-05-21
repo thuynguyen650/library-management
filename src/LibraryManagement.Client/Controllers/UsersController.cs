@@ -15,7 +15,7 @@ public class UsersController : ApiControllerBase
     }
 
     [HttpGet]
-    public async Task<List<User>> GetUsers()
+    public async Task<ActionResult<List<User>>> GetUsers()
     {
         return await _context.Users.ToListAsync();
     }

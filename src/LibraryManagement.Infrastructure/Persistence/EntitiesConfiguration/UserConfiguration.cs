@@ -10,9 +10,9 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
     {
         builder.HasKey(user => user.Id);
 
-        builder.HasMany(user => user.WaitingLists)
+/*        builder.HasMany(user => user.WaitingLists)
             .WithOne(waitingList => waitingList.User)
-            .HasForeignKey(waitingList => waitingList.UserId);
+            .HasForeignKey(waitingList => waitingList.UserId);*/
 
         builder.HasMany(user => user.Holds)
         .WithOne(hold => hold.User)

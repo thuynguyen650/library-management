@@ -13,8 +13,6 @@ public class ApplicationDbContext : DbContext
 
     public DbSet<Author> Authors { get; set; }
 
-    public DbSet<BookAuthor> BookAuthors { get; set; }
-
     public DbSet<BookCategory> BookCategories { get; set; }
 
     public DbSet<BookCopy> BookCopies { get; set; }
@@ -28,8 +26,6 @@ public class ApplicationDbContext : DbContext
     public DbSet<User> Users { get; set; }
 
     public DbSet<Publisher> Publishers { get; set; }
-
-    public DbSet<WaitingList> WaitingLists { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {

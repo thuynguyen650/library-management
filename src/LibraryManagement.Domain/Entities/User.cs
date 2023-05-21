@@ -16,11 +16,13 @@ public class User : BaseAuditableEntity
 
     public string PasswordHash { get; set; } = string.Empty;
 
-    public List<WaitingList> WaitingLists { get; set; } = new List<WaitingList>();
+    //public List<UserBook> Books { get; set; } = new List<UserBook>();
 
     public List<Hold> Holds { get; set; } = new List<Hold>();
 
     public List<Checkout> Checkouts { get; set; } = new List<Checkout>();
 
     public List<Notification> Notifications { get; set; } = new List<Notification>();
+
+    public List<Book> Books { get; set; } = new List<Book>();
 }
