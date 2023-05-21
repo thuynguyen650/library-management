@@ -3,6 +3,7 @@
 namespace LibraryManagement.Client.Controllers;
 
 [ApiController]
+[Route("api/[controller]")]
 public class ApiControllerBase : ControllerBase
 {
 }
