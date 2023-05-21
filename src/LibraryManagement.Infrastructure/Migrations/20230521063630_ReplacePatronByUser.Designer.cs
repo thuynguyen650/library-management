@@ -4,6 +4,7 @@ using LibraryManagement.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LibraryManagement.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230521063630_ReplacePatronByUser")]
+    partial class ReplacePatronByUser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,36 +24,6 @@ namespace LibraryManagement.Infrastructure.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
-
-            modelBuilder.Entity("AuthorBook", b =>
-                {
-                    b.Property<Guid>("AuthorsId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("BooksId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("AuthorsId", "BooksId");
-
-                    b.HasIndex("BooksId");
-
-                    b.ToTable("AuthorBook");
-                });
-
-            modelBuilder.Entity("BookUser", b =>
-                {
-                    b.Property<Guid>("BooksId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("UsersId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("BooksId", "UsersId");
-
-                    b.HasIndex("UsersId");
-
-                    b.ToTable("BookUser");
-                });
 
             modelBuilder.Entity("LibraryManagement.Domain.Entities.Author", b =>
                 {
@@ -109,6 +82,21 @@ namespace LibraryManagement.Infrastructure.Migrations
                     b.HasIndex("BookCategoryId");
 
                     b.ToTable("Books");
+                });
+
+            modelBuilder.Entity("LibraryManagement.Domain.Entities.BookAuthor", b =>
+                {
+                    b.Property<Guid>("BookId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("AuthorId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("BookId", "AuthorId");
+
+                    b.HasIndex("AuthorId");
+
+                    b.ToTable("BookAuthors");
                 });
 
             modelBuilder.Entity("LibraryManagement.Domain.Entities.BookCategory", b =>
@@ -310,34 +298,19 @@ namespace LibraryManagement.Infrastructure.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("AuthorBook", b =>
+            modelBuilder.Entity("LibraryManagement.Domain.Entities.WaitingList", b =>
                 {
-                    b.HasOne("LibraryManagement.Domain.Entities.Author", null)
-                        .WithMany()
-                        .HasForeignKey("AuthorsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
 
-                    b.HasOne("LibraryManagement.Domain.Entities.Book", null)
-                        .WithMany()
-                        .HasForeignKey("BooksId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
+                    b.Property<Guid>("BookId")
+                        .HasColumnType("uniqueidentifier");
 
-            modelBuilder.Entity("BookUser", b =>
-                {
-                    b.HasOne("LibraryManagement.Domain.Entities.Book", null)
-                        .WithMany()
-                        .HasForeignKey("BooksId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasKey("UserId", "BookId");
 
-                    b.HasOne("LibraryManagement.Domain.Entities.User", null)
-                        .WithMany()
-                        .HasForeignKey("UsersId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasIndex("BookId");
+
+                    b.ToTable("WaitingLists");
                 });
 
             modelBuilder.Entity("LibraryManagement.Domain.Entities.Book", b =>
@@ -349,6 +322,25 @@ namespace LibraryManagement.Infrastructure.Migrations
                         .IsRequired();
 
                     b.Navigation("BookCategory");
+                });
+
+            modelBuilder.Entity("LibraryManagement.Domain.Entities.BookAuthor", b =>
+                {
+                    b.HasOne("LibraryManagement.Domain.Entities.Author", "Author")
+                        .WithMany("BookAuthorList")
+                        .HasForeignKey("AuthorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("LibraryManagement.Domain.Entities.Book", "Book")
+                        .WithMany("BookAuthorList")
+                        .HasForeignKey("BookId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Author");
+
+                    b.Navigation("Book");
                 });
 
             modelBuilder.Entity("LibraryManagement.Domain.Entities.BookCopy", b =>
@@ -427,9 +419,37 @@ namespace LibraryManagement.Infrastructure.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("LibraryManagement.Domain.Entities.WaitingList", b =>
+                {
+                    b.HasOne("LibraryManagement.Domain.Entities.Book", "Book")
+                        .WithMany("WaitingList")
+                        .HasForeignKey("BookId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("LibraryManagement.Domain.Entities.User", "User")
+                        .WithMany("WaitingLists")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Book");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("LibraryManagement.Domain.Entities.Author", b =>
+                {
+                    b.Navigation("BookAuthorList");
+                });
+
             modelBuilder.Entity("LibraryManagement.Domain.Entities.Book", b =>
                 {
+                    b.Navigation("BookAuthorList");
+
                     b.Navigation("BookCopies");
+
+                    b.Navigation("WaitingList");
                 });
 
             modelBuilder.Entity("LibraryManagement.Domain.Entities.BookCategory", b =>
@@ -458,6 +478,8 @@ namespace LibraryManagement.Infrastructure.Migrations
                     b.Navigation("Holds");
 
                     b.Navigation("Notifications");
+
+                    b.Navigation("WaitingLists");
                 });
 #pragma warning restore 612, 618
         }

@@ -14,12 +14,10 @@ public class BookConfiguration : IEntityTypeConfiguration<Book>
             .WithOne(bookCopy => bookCopy.Book)
             .HasForeignKey(bookCopy => bookCopy.BookId);
 
-        builder.HasMany(book => book.BookAuthorList)
-            .WithOne(bookAuthorList => bookAuthorList.Book)
-            .HasForeignKey(bookAuthorList => bookAuthorList.BookId);
+        builder.HasMany(book => book.Users)
+            .WithMany(user => user.Books);
 
-        builder.HasMany(book => book.WaitingList)
-            .WithOne(waitingList => waitingList.Book)
-            .HasForeignKey(waitingList => waitingList.BookId);
+        builder.HasMany(book => book.Authors)
+            .WithMany(author => author.Books);
     }
 }

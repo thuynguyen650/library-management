@@ -8,6 +8,6 @@ public class CheckoutConfiguration : IEntityTypeConfiguration<Checkout>
 {
     public void Configure(EntityTypeBuilder<Checkout> builder)
     {
-        builder.HasKey(checkout => new { checkout.PatronId, checkout.BookCopyId });
+        builder.HasKey(checkout => new { checkout.UserId, checkout.BookCopyId });
     }
 }

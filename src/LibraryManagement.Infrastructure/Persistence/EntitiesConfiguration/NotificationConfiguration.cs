@@ -8,6 +8,6 @@ public class NotificationConfiguration : IEntityTypeConfiguration<Notification>
 {
     public void Configure(EntityTypeBuilder<Notification> builder)
     {
-        builder.HasKey(notification => new { notification.BookCopyId, notification.PatronId });
+        builder.HasKey(notification => new { notification.BookCopyId, notification.UserId });
     }
 }

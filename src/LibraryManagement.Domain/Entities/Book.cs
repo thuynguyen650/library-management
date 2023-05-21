@@ -12,7 +12,7 @@ public class Book : BaseAuditableEntity
 
     public BookCategory BookCategory { get; set; } = new BookCategory();
 
-    public List<BookAuthor> BookAuthorList { get; set; } = new List<BookAuthor>();
+    public List<Author> Authors { get; set; } = new List<Author>();
 
-    public List<WaitingList> WaitingList { get; set; } = new List<WaitingList>();
+    public List<User> Users { get; set; } = new List<User>();
 }
