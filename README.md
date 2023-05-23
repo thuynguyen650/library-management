@@ -1,5 +1,4 @@
 This repo contains source code for a library management system.
-Project started on April 25th, 2023.
 
 Bellow is basic requirements for the system:
 
