@@ -9,5 +9,10 @@ public class HoldConfiguration : IEntityTypeConfiguration<Hold>
     public void Configure(EntityTypeBuilder<Hold> builder)
     {
         builder.HasKey(hold => new { hold.UserId, hold.BookCopyId });
+
+        builder.HasOne(h => h.User)
+            .WithMany()
+            .HasForeignKey(h => h.UserId)
+            .IsRequired();
     }
 }

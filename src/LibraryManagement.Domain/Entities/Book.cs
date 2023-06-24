@@ -1,4 +1,5 @@
 ﻿using LibraryManagement.Domain.Common;
+using LibraryManagement.Domain.Entities.Authentication;
 
 namespace LibraryManagement.Domain.Entities;
 
