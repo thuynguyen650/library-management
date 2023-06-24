@@ -9,8 +9,8 @@ namespace LibraryManagement.Application.CommandHandlers.Authentication;
 
 public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, Guid>
 {
-    private readonly UserManager<User> userManager;
-    private readonly RoleManager<Role> roleManager;
+    private readonly UserManager<User> _userManager;
+    private readonly RoleManager<Role> _roleManager;
     private readonly IConfiguration _configuration;
 
     public CreateUserCommandHandler(
@@ -18,14 +18,14 @@ public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, Guid>
         RoleManager<Role> roleManager,
         IConfiguration configuration)
     {
-        this.userManager = userManager;
-        this.roleManager = roleManager;
+        _userManager = userManager;
+        _roleManager = roleManager;
         _configuration = configuration;
     }
 
     public async Task<Guid> Handle(CreateUserCommand command, CancellationToken cancellationToken)
     {
-        var userExists = await userManager.FindByEmailAsync(command.Email);
+        var userExists = await _userManager.FindByEmailAsync(command.Email);
 
         if (userExists != null)
         {
@@ -39,7 +39,7 @@ public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, Guid>
             UserName = command.Email
         };
 
-        var result = await userManager.CreateAsync(user, command.Password);
+        var result = await _userManager.CreateAsync(user, command.Password);
 
         if (!result.Succeeded)
             throw new ValidationException("Invalid information");

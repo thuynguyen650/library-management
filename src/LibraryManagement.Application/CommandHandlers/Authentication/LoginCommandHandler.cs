@@ -26,7 +26,9 @@ public class LoginCommandHandler : IRequestHandler<LoginCommand, string>
     {
         _user = await _userManager.FindByEmailAsync(command.Email);
 
-        if (_user != null && await _userManager.CheckPasswordAsync(_user, command.Password))
+        var isValidPassword = await _userManager.CheckPasswordAsync(_user, command.Password);
+
+        if (_user != null && isValidPassword)
         {
             var signingCredentials = GetSigningCredentials();
             var claims = await GetClaims();
