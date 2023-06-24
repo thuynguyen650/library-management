@@ -1,4 +1,5 @@
 using LibraryManagement.Infrastructure;
+using LibraryManagement.Application;
 
 internal class Program
 {
@@ -13,6 +14,9 @@ internal class Program
 
         // Add Swagger
         builder.Services.AddSwaggerGen();
+
+        // Add Application
+        builder.Services.AddApplication(builder.Configuration);
 
         var app = builder.Build();
 
