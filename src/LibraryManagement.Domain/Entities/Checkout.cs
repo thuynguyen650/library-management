@@ -1,4 +1,6 @@
-﻿namespace LibraryManagement.Domain.Entities;
+﻿using LibraryManagement.Domain.Entities.Authentication;
+
+namespace LibraryManagement.Domain.Entities;
 
 public class Checkout
 {

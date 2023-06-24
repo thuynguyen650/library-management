@@ -1,4 +1,6 @@
-﻿using LibraryManagement.Infrastructure.Persistence;
+﻿using LibraryManagement.Domain.Entities.Authentication;
+using LibraryManagement.Infrastructure.Persistence;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -11,6 +13,10 @@ public static class Startup
     {
         services.AddDbContext<ApplicationDbContext>(options =>
             options.UseSqlServer(configuration.GetConnectionString("LibraryManagementDb") ?? throw new InvalidOperationException("Connection string 'MvcMovieContext' not found.")));
+
+        services.AddIdentity<User, Role>()
+            .AddEntityFrameworkStores<ApplicationDbContext>()
+            .AddDefaultTokenProviders();
 
         return services;
     }
