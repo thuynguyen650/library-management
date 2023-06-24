@@ -18,7 +18,15 @@ public class AuthenticationController : ApiControllerBase
 
     [HttpPost]
     [Route("register")]
-    public async Task<IActionResult> Register([FromBody] CreateUserCommand command)
+    public async Task<IActionResult> Register(CreateUserCommand command)
+    {
+        var result = await _mediator.Send(command);
+        return Ok(result);
+    }
+
+    [HttpPost]
+    [Route("login")]
+    public async Task<IActionResult> Login(LoginCommand command)
     {
         var result = await _mediator.Send(command);
         return Ok(result);
