@@ -1,11 +1,22 @@
 using LibraryManagement.Infrastructure;
 using LibraryManagement.Application;
+using System.Runtime.CompilerServices;
 
 internal class Program
 {
     private static void Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
+
+        builder.Services.AddCors(options =>
+        {
+            options.AddPolicy(
+                name: "OpenCORSPolicy",
+                builder =>
+                {
+                    builder.WithOrigins("*").AllowAnyHeader().AllowAnyMethod();
+                });
+        });
 
         builder.Services.AddInfrastructure(builder.Configuration);
 
@@ -35,8 +46,8 @@ internal class Program
         app.UseStaticFiles();
 
         app.UseRouting();
-
-        app.UseAuthorization();
+        app.UseCors("OpenCORSPolicy");
+        app.UseAuthentication();
         app.UseAuthorization();
 
         app.MapControllerRoute(
