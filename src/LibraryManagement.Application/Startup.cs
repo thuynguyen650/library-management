@@ -12,6 +12,8 @@ public static class Startup
     {
         services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Startup).Assembly));
 
+        services.AddAutoMapper(typeof(Startup).Assembly);
+
         return services;
     }
 }

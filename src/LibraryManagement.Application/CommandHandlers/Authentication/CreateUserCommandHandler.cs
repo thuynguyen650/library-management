@@ -1,4 +1,5 @@
-﻿using LibraryManagement.Application.Commands.Authentication;
+﻿using AutoMapper;
+using LibraryManagement.Application.Commands.Authentication;
 using LibraryManagement.Domain.Entities.Authentication;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
@@ -10,17 +11,14 @@ namespace LibraryManagement.Application.CommandHandlers.Authentication;
 public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, Guid>
 {
     private readonly UserManager<User> _userManager;
-    private readonly RoleManager<Role> _roleManager;
-    private readonly IConfiguration _configuration;
+    private readonly IMapper _mapper;
 
     public CreateUserCommandHandler(
         UserManager<User> userManager,
-        RoleManager<Role> roleManager,
-        IConfiguration configuration)
+        IMapper mapper)
     {
         _userManager = userManager;
-        _roleManager = roleManager;
-        _configuration = configuration;
+        _mapper = mapper;
     }
 
     public async Task<Guid> Handle(CreateUserCommand command, CancellationToken cancellationToken)
@@ -32,12 +30,7 @@ public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, Guid>
             throw new InvalidOperationException("This email address is already taken.");
         }
 
-        User user = new User()
-        {
-            Email = command.Email,
-            SecurityStamp = Guid.NewGuid().ToString(),
-            UserName = command.Email
-        };
+        User user = _mapper.Map<User>(command);
 
         var result = await _userManager.CreateAsync(user, command.Password);
 
