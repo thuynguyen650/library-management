@@ -22,5 +22,5 @@ export class AppComponent implements OnInit {
       }
     );
   }
-  title: string = 'Student Details';
+  title: string = 'My Library';
 }
