@@ -6,12 +6,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './shared/header/header.component';
 import { SignupComponent } from './authentication/signup/signup.component';
 import { FormsModule } from '@angular/forms';
+import { LoginComponent } from './authentication/login/login.component';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     SignupComponent,
+    LoginComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
