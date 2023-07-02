@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { UserRegister } from '../models/user-register';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { FormControl, FormGroup, Validator } from '@angular/forms';
 
 @Component({
   selector: 'app-signup',
@@ -9,20 +9,26 @@ import { Router } from '@angular/router';
   styleUrls: ['./signup.component.sass']
 })
 export class SignupComponent {
-  user = new UserRegister();
   errors = new Array();
+
+  registerForm = new FormGroup({
+    email: new FormControl(),
+    password: new FormControl(),
+    passwordConfirm: new FormControl()
+  });
 
   constructor(
     private httpClient: HttpClient,
     private router: Router) {}
 
   protected onSubmit() {
-    if (this.user.password !== this.user.passwordConfirm) {
+    console.log(this.registerForm.value);
+    if (this.registerForm.get("password")?.value != this.registerForm.get("passwordConfirm")?.value) {
       this.errors.push("Your password mismatch!");
     }
 
     else {
-      this.httpClient.post('https://localhost:7141/api/authentication/register', this.user)
+      this.httpClient.post('https://localhost:7141/api/authentication/register', this.registerForm.value)
       .subscribe({
         next: () => {
           this.router.navigate(["login"]);
@@ -31,5 +37,6 @@ export class SignupComponent {
         complete: () => console.log("completed"),
       })
     }
+    
   }
 }
