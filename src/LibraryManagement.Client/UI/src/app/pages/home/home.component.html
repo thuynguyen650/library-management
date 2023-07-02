@@ -1,0 +1,22 @@
+<section id="products" class="container mx-auto py-10">
+    <div class="grid grid-cols-5">
+        <div class="px-4 my-4 border-r product-item" *ngFor="let book of books">
+            <div class="product-item--top">
+                <a href="#">
+                    <img src="{{ book.img }}" class="rounded-2xl" alt="{{ book.title }}">
+                </a>
+
+                <div class="product-item--action">
+                    
+                </div>
+            </div>
+
+            <div class="product-item--bottom mt-4">
+                <div>
+                    <a href="#" class="font-medium text-xl">{{ book.title }}</a>
+                </div>
+                <a href="#" class="text-gray-400 font-medium">{{ book.author }}</a>
+            </div>
+        </div>
+    </div>
+</section>
