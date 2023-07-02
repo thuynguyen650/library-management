@@ -10,8 +10,6 @@ import { isPasswordMatch } from '../validators/password.validator';
   styleUrls: ['./signup.component.sass']
 })
 export class SignupComponent {
-  errors = new Array();
-
   registerForm = new FormGroup({
     email: new FormControl("", [Validators.required, Validators.email]),
     password: new FormControl("", [Validators.required]),
@@ -36,21 +34,14 @@ export class SignupComponent {
     private router: Router) {}
 
   protected onSubmit() {
-    console.log(this.registerForm.value);
-    if (this.registerForm.get("password")?.value != this.registerForm.get("passwordConfirm")?.value) {
-      this.errors.push("Your password mismatch!");
-    }
-
-    else {
-      this.httpClient.post('https://localhost:7141/api/authentication/register', this.registerForm.value)
-      .subscribe({
-        next: () => {
-          this.router.navigate(["login"]);
-        },
-        error: (error) => { console.log(error) },
-        complete: () => console.log("completed"),
-      })
-    }
-    
+    this.httpClient.post('https://localhost:7141/api/authentication/register', this.registerForm.value)
+    .subscribe({
+      next: () => {
+        this.router.navigate(["login"]);
+      },
+      error: (error) => {
+        this.registerForm.setErrors({"generalErr": error.error });
+      }
+    })
   }
 }

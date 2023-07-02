@@ -3,6 +3,7 @@ using LibraryManagement.Domain.Entities.Authentication;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel.DataAnnotations;
 
 namespace LibraryManagement.Client.Controllers;
 
@@ -20,8 +21,19 @@ public class AuthenticationController : ApiControllerBase
     [Route("register")]
     public async Task<IActionResult> Register(CreateUserCommand command)
     {
-        var result = await _mediator.Send(command);
-        return Ok(result);
+        try
+        {
+            var result = await _mediator.Send(command);
+            return Ok(result);
+        }
+        catch (InvalidOperationException ex)
+        {
+            return BadRequest(ex.Message);
+        }
+        catch(ValidationException ex)
+        {
+            return BadRequest(ex.Message);
+        }
     }
 
     [HttpPost]
