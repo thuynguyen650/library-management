@@ -23,6 +23,10 @@ public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, Guid>
 
     public async Task<Guid> Handle(CreateUserCommand command, CancellationToken cancellationToken)
     {
+        if (command.Password != command.PasswordConfirm)
+        {
+            throw new ValidationException("Password is mismatch");
+        }
         var userExists = await _userManager.FindByEmailAsync(command.Email);
 
         if (userExists != null)
