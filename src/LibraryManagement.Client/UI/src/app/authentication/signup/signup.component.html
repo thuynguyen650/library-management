@@ -8,33 +8,49 @@
                 </li>
             </ul>
         </div>
-        <form action="post" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <form action="post" [formGroup]="registerForm" (ngSubmit)="onSubmit()" novalidate>
             <div class="mb-4">
                 <label for="email" class="block font-medium after:content-['*'] after:ml-0.5 after:text-red-500">Email address</label>
                 <div>
-                    <input type="email" name="email" id="email" formControlName="email" required class="py-3 mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
+                    <input type="email" name="email" id="email" formControlName="email" required class="py-3 my-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
                     focus:outline-none focus:border-emerald-500" />
-                    <!-- <span [hidden]="email.valid || email.pristine" class="text-sm text-red-500">Email is invalid.</span> -->
+                    <div *ngIf="!email?.valid && (email?.touched || email?.dirty)" class="text-sm text-red-500">
+                        <span *ngIf="email?.errors?.['required']">
+                            Email is required.
+                        </span>
+                        <span *ngIf="email?.errors?.['email']">
+                            Email is invalid.
+                        </span>
+                    </div>
                 </div>
             </div>
 
             <div class="mb-4">
                 <label for="password" class="block font-medium after:content-['*'] after:ml-0.5 after:text-red-500">Password</label>
                 <div>
-                    <input type="password" name="password" id="password" required formControlName="password" class="py-3 mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
+                    <input type="password" name="password" id="password" formControlName="password" class="py-3 my-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
                     focus:outline-none focus:border-emerald-500" />
                 </div>
-                <!-- <span [hidden]="password.valid || password.pristine" class="text-sm text-red-500">Password is required.</span> -->
+                <div *ngIf="password?.invalid && (password?.touched || password?.dirty)" class="text-sm text-red-500">
+                    Password is required.
+                </div>
             </div>
     
             <div class="mb-4">
                 <label for="password-confirm" class="block font-medium after:content-['*'] after:ml-0.5 after:text-red-500">Confirm password</label>
                 <div>
                     <input type="password" name="password-confirm" id="password-confirm" formControlName="passwordConfirm"
-                        class="py-3 mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
+                        class="py-3 my-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
                     focus:outline-none focus:border-emerald-500" />
                 </div>
-                <!-- <span [hidden]="passwordConfirm.valid || passwordConfirm.pristine" class="text-sm text-red-500">Password confirm is required.</span> -->
+                <div *ngIf="(passwordConfirm?.invalid || registerForm.errors?.['mismatch']) && (passwordConfirm?.touched || passwordConfirm?.dirty)" class="text-sm text-red-500">
+                    <span *ngIf="passwordConfirm?.errors?.['required']">
+                        Password confirm is required.
+                    </span>
+                    <span *ngIf="!passwordConfirm?.errors?.['required'] && registerForm.errors?.['mismatch']">
+                        Password is mismatch.
+                    </span>
+                </div>
             </div>
 
             <div>

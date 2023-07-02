@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { FormControl, FormGroup, Validator } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { isPasswordMatch } from '../validators/password.validator';
 
 @Component({
   selector: 'app-signup',
@@ -12,10 +13,23 @@ export class SignupComponent {
   errors = new Array();
 
   registerForm = new FormGroup({
-    email: new FormControl(),
-    password: new FormControl(),
-    passwordConfirm: new FormControl()
-  });
+    email: new FormControl("", [Validators.required, Validators.email]),
+    password: new FormControl("", [Validators.required]),
+    passwordConfirm: new FormControl("", [Validators.required])
+  },
+  [isPasswordMatch]);
+
+  get email() {
+    return this.registerForm.get('email');
+  }
+
+  get password() {
+    return this.registerForm.get('password');
+  }
+
+  get passwordConfirm() {
+    return this.registerForm.get('passwordConfirm');
+  }
 
   constructor(
     private httpClient: HttpClient,
