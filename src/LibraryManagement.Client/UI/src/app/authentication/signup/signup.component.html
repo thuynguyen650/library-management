@@ -2,9 +2,9 @@
     <div class="sm:max-w-sm mx-auto">
         <h2 class="text-3xl font-bold mb-8 text-center">Register</h2>
         <div class="mb-8 bg-red-300 py-4 font-bold border border-red-500" *ngIf="registerForm.errors?.['generalErr']">
-            <ul class="list-disc text-red-600 ml-4">
+            <div class="list-disc text-red-600 ml-4">
                 {{ registerForm.errors?.['generalErr'] }}
-            </ul>
+            </div>
         </div>
         <form action="post" [formGroup]="registerForm" (ngSubmit)="onSubmit()" novalidate>
             <div class="mb-4">
@@ -12,7 +12,7 @@
                 <div>
                     <input type="email" name="email" id="email" formControlName="email" required class="py-3 my-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
                     focus:outline-none focus:border-emerald-500" />
-                    <div *ngIf="!email?.valid && (email?.touched || email?.dirty)" class="text-sm text-red-500">
+                    <div *ngIf="!email?.valid && (email?.touched || email?.dirty)" class="text-sm text-red-500 font-bold">
                         <span *ngIf="email?.errors?.['required']">
                             Email is required.
                         </span>
@@ -29,7 +29,7 @@
                     <input type="password" name="password" id="password" formControlName="password" class="py-3 my-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
                     focus:outline-none focus:border-emerald-500" />
                 </div>
-                <div *ngIf="password?.invalid && (password?.touched || password?.dirty)" class="text-sm text-red-500">
+                <div *ngIf="password?.invalid && (password?.touched || password?.dirty)" class="text-sm text-red-500 font-bold">
                     Password is required.
                 </div>
             </div>
@@ -41,7 +41,7 @@
                         class="py-3 my-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
                     focus:outline-none focus:border-emerald-500" />
                 </div>
-                <div *ngIf="(passwordConfirm?.invalid || registerForm.errors?.['mismatch']) && (passwordConfirm?.touched || passwordConfirm?.dirty)" class="text-sm text-red-500">
+                <div *ngIf="(passwordConfirm?.invalid || registerForm.errors?.['mismatch']) && (passwordConfirm?.touched || passwordConfirm?.dirty)" class="text-sm text-red-500 font-bold">
                     <span *ngIf="passwordConfirm?.errors?.['required']">
                         Password confirm is required.
                     </span>

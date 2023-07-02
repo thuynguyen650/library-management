@@ -1,30 +1,37 @@
 <section id="signup" class="container mx-auto my-20">
     <div class="sm:max-w-sm mx-auto">
         <h2 class="text-3xl font-bold mb-8 text-center">Register</h2>
-        <div class="mb-8" *ngIf="errors.length !== 0">
-            <ul class="list-disc text-red-500 ml-4">
-                <li *ngFor="let err of errors">
-                   {{ err }}
-                </li>
-            </ul>
+        <div class="mb-8 bg-red-300 py-4 font-bold border border-red-500" *ngIf="loginForm.errors?.['generalErr']">
+            <div class="list-disc text-red-600 ml-4">
+                {{ loginForm.errors?.['generalErr'] }}
+            </div>
         </div>
         <form action="post" [formGroup]="loginForm">
             <div class="mb-4">
                 <label for="email" class="block font-medium after:content-['*'] after:ml-0.5 after:text-red-500">Email address</label>
                 <div>
-                    <input type="email" name="email" id="email" required formControlName="email" class="py-3 mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
+                    <input type="email" name="email" id="email" formControlName="email" class="py-3 my-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
                     focus:outline-none focus:border-emerald-500" />
-                    <!-- <span [hidden]="email.valid || email.pristine" class="text-sm text-red-500">Email is invalid.</span> -->
+                    <div *ngIf="!loginForm.controls.email?.valid && (loginForm.controls.email?.touched || loginForm.controls.email?.dirty)" class="text-sm text-red-500 font-bold">
+                        <span *ngIf="loginForm.controls.email?.errors?.['required']">
+                            Email is required.
+                        </span>
+                        <span *ngIf="loginForm.controls.email?.errors?.['email']">
+                            Email is invalid.
+                        </span>
+                    </div>
                 </div>
             </div>
 
             <div class="mb-4">
                 <label for="password" class="block font-medium after:content-['*'] after:ml-0.5 after:text-red-500">Password</label>
                 <div>
-                    <input type="password" name="password" id="password" required formControlName="password" autocomplete class="py-3 mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
+                    <input type="password" name="password" id="password" formControlName="password" autocomplete class="py-3 my-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
                     focus:outline-none focus:border-emerald-500" />
                 </div>
-                <!-- <span [hidden]="password.valid || password.pristine" class="text-sm text-red-500">Password is required.</span> -->
+                <div *ngIf="!loginForm.controls.password?.valid && (loginForm.controls.password?.touched || loginForm.controls.password?.dirty)" class="text-sm text-red-500 font-bold">
+                    Password is required.
+                </div>
             </div>
 
             <div>

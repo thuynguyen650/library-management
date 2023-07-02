@@ -4,6 +4,7 @@ using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
+using System.ComponentModel.DataAnnotations;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -26,17 +27,22 @@ public class LoginCommandHandler : IRequestHandler<LoginCommand, string>
     {
         _user = await _userManager.FindByEmailAsync(command.Email);
 
-        var isValidPassword = await _userManager.CheckPasswordAsync(_user, command.Password);
-
-        if (_user != null && isValidPassword)
+        if (_user == null)
         {
-            var signingCredentials = GetSigningCredentials();
-            var claims = await GetClaims();
-            var tokenOptions = GenerateTokenOptions(signingCredentials, claims);
-            return new JwtSecurityTokenHandler().WriteToken(tokenOptions);
+            throw new InvalidOperationException("We couldn't find an account with this email address.");
         }
 
-        throw new InvalidOperationException("We couldn't find an account with this email address.");
+        var isValidPassword = await _userManager.CheckPasswordAsync(_user, command.Password);
+
+        if (!isValidPassword)
+        {
+            throw new ValidationException("Password is incorrect.");
+        }
+
+        var signingCredentials = GetSigningCredentials();
+        var claims = await GetClaims();
+        var tokenOptions = GenerateTokenOptions(signingCredentials, claims);
+        return new JwtSecurityTokenHandler().WriteToken(tokenOptions);
     }
 
     private SigningCredentials GetSigningCredentials()
