@@ -1,11 +1,11 @@
 <section id="signup" class="container mx-auto my-20">
     <div class="sm:max-w-sm mx-auto">
         <h2 class="text-3xl font-bold mb-8 text-center">Register</h2>
-        <div class="mb-8 bg-red-300 py-4 font-bold border border-red-500" *ngIf="registerForm.errors?.['generalErr']">
-            <div class="list-disc text-red-600 ml-4">
-                {{ registerForm.errors?.['generalErr'] }}
-            </div>
-        </div>
+        <ul class="mb-8 bg-red-300 py-4 font-bold border border-red-500" *ngIf="registerForm.errors?.['generalErr']">
+            <li class="list-disc text-red-600 ml-4" *ngFor="let e of registerForm.errors?.['generalErr'].split('.')">
+                {{ e }}
+            </li>
+        </ul>
         <form action="post" [formGroup]="registerForm" (ngSubmit)="onSubmit()" novalidate>
             <div class="mb-4">
                 <label for="email" class="block font-medium after:content-['*'] after:ml-0.5 after:text-red-500">Email address</label>

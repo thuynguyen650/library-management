@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace LibraryManagement.Infrastructure.Persistence.EntitiesConfiguration;
 
-public class BookCopyCofiguration : IEntityTypeConfiguration<BookCopy>
+public class BookCopyConfiguration : IEntityTypeConfiguration<BookCopy>
 {
     public void Configure(EntityTypeBuilder<BookCopy> builder)
     {
