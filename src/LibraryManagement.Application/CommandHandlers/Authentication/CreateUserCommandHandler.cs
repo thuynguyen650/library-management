@@ -39,7 +39,7 @@ public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, Guid>
         var result = await _userManager.CreateAsync(user, command.Password);
 
         if (!result.Succeeded)
-            throw new ValidationException(result.Errors.FirstOrDefault()?.Description);
+            throw new ValidationException(string.Concat(result.Errors.Select(x => x.Description)));
 
         return user.Id;
     }
