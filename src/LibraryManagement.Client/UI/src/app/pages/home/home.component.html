@@ -1,4 +1,4 @@
-<section id="products" class="container mx-auto py-10">
+<!-- <section id="products" class="container mx-auto py-10">
         <div  class="grid grid-cols-5" *ngFor="let book of books">
             <div class="px-4 my-4 border-r product-item" *ngFor="let bookCopy of book.bookCopies">
                 <div class="product-item--top">
@@ -21,4 +21,134 @@
                 </div>
             </div>
         </div>
-</section>
+</section> -->
+
+<main>
+    <section id="banner">
+        <div class="container grid grid-cols-2 mx-auto py-24">
+            <div class="banner-left mt-16">
+                <p class="uppercase font-bold text-lg gray">The bookworm editors</p>
+                <p class="large">Featured Books of the <strong>July</strong></p>
+                <div class="mt-12">
+                    <a routerLink="/categories" class="capitalize button font-semibold">See more</a>
+                </div>
+            </div>
+
+            <div class="banner-right">
+                <img src="../../../assets/banner.png" alt="bookworm">
+            </div>
+        </div>
+    </section>
+
+    <section id="featured-categories" class="pt-24">
+        <div class="container mx-auto">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="large font-medium">Featured Categories</h2>
+                <a class="text-lg" routerLink="/categories">All Categories <fa-icon [icon]="faChevronRight"
+                        class="text-2xl ml-2"></fa-icon></a>
+            </div>
+            <div class="grid grid-cols-5">
+                <div class="category-item text-center font-medium text-lg px-10 py-16 bg-purple mr-4">
+                    <div class="category-icon mb-4">
+                        <fa-icon [icon]="faPhotoFilm"></fa-icon>
+                    </div>
+                    Art & Photography
+                </div>
+
+                <div class="category-item text-center font-medium text-lg px-10 py-16 bg-orange mx-4">
+                    <div class="category-icon mb-4">
+                        <fa-icon [icon]="faMugHot"></fa-icon>
+                    </div>
+                    Food & Drink
+                </div>
+
+                <div class="category-item text-center font-medium text-lg px-10 py-16 bg-brown mx-4">
+                    <div class="category-icon mb-4">
+                        <fa-icon [icon]="faFaceKiss"></fa-icon>
+                    </div>
+                    Romance
+                </div>
+
+                <div class="category-item text-center font-medium text-lg px-10 py-16 bg-green mx-4">
+                    <div class="category-icon mb-4">
+                        <fa-icon [icon]="faUserDoctor"></fa-icon>
+                    </div>
+                    Health
+                </div>
+
+                <div class="category-item text-center font-medium text-lg px-10 py-16 bg-pink ml-4">
+                    <div class="category-icon mb-4">
+                        <fa-icon [icon]="faBook"></fa-icon>
+                    </div>
+                    Biography
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="bestselling" class="pt-24">
+        <div class="container mx-auto">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="large font-medium">Bestselling Books</h2>
+                <a class="text-lg capitalize" routerLink="/categories">View all<fa-icon [icon]="faChevronRight"
+                        class="text-2xl ml-2"></fa-icon></a>
+            </div>
+
+            <div class="carousel relative">
+                <div (click)="goPrev()"
+                class="z-10 prev absolute inset-y-1/2 -left-20 border border-zinc-400 px-5 py-3 h-fit cursor-pointer hover:bg-black hover:border-black group ease-in-out duration-300">
+                    <fa-icon [icon]="faChevronLeft" class="text-gray-500 font-semibold group-hover:text-white ease-in-out duration-500"></fa-icon>
+                </div>
+
+                <div class="overflow-x-hidden overflow-y-hidden w-full h-full mx-auto">
+                    <div #slider class="slick-list flex ease-in-out duration-700 border-r">
+                        <app-book-item></app-book-item>
+                        <app-book-item></app-book-item>
+                        <app-book-item></app-book-item>
+                        <app-book-item></app-book-item>
+                        <app-book-item></app-book-item>
+                        <app-book-item></app-book-item>
+                        <app-book-item></app-book-item>
+                    </div>
+                </div>
+
+                <div (click)="goNext()"
+                class="next absolute inset-y-1/2 -right-20 border border-zinc-400 px-5 py-3 h-fit cursor-pointer hover:bg-black hover:border-black group ease-in-out duration-300">
+                    <fa-icon [icon]="faChevronRight" class="text-gray-500 font-semibold group-hover:text-white ease-in-out duration-500"></fa-icon>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="featured-books" class="pt-24">
+        <div class="container mx-auto">
+            <h2 class="large font-medium text-center">Featured Books</h2>
+            <ul class="flex justify-center">
+                <li>
+                    Featured
+                </li>
+                <li>
+                    On Sale
+                </li>
+                <li>
+                    Most Viewed
+                </li>
+            </ul>
+
+            <div class="grid grid-cols-6 border-r">
+                <app-book-item></app-book-item>
+                <app-book-item></app-book-item>
+                <app-book-item></app-book-item>
+                <app-book-item></app-book-item>
+                <app-book-item></app-book-item>
+                <app-book-item></app-book-item>
+                <app-book-item></app-book-item>
+                <app-book-item></app-book-item>
+                <app-book-item></app-book-item>
+                <app-book-item></app-book-item>
+                <app-book-item></app-book-item>
+                <app-book-item></app-book-item>
+            </div>
+        </div>
+    </section>
+</main>

@@ -8,6 +8,8 @@ import { SignupComponent } from './authentication/signup/signup.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './authentication/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { BookItemComponent } from './components/book-item/book-item.component';
 
 @NgModule({
   declarations: [
@@ -16,12 +18,14 @@ import { HomeComponent } from './pages/home/home.component';
     SignupComponent,
     LoginComponent,
     HomeComponent,
+    BookItemComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
