@@ -23,6 +23,10 @@ public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, Guid>
 
     public async Task<Guid> Handle(CreateUserCommand command, CancellationToken cancellationToken)
     {
+        if (command.Password != command.PasswordConfirm)
+        {
+            throw new ValidationException("Password is mismatch");
+        }
         var userExists = await _userManager.FindByEmailAsync(command.Email);
 
         if (userExists != null)
@@ -35,7 +39,7 @@ public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, Guid>
         var result = await _userManager.CreateAsync(user, command.Password);
 
         if (!result.Succeeded)
-            throw new ValidationException(result.Errors.FirstOrDefault()?.Description);
+            throw new ValidationException(string.Concat(result.Errors.Select(x => x.Description)));
 
         return user.Id;
     }

@@ -1,5 +1,35 @@
-<header class="bg-emerald-900 p-2 text-white">
-    <nav class="container mx-auto">
-        <h1 class="text-3xl font-bold underline-offset-0">Valleys</h1>
+<header class="">
+    <nav class="container mx-auto nav flex justify-between items-center">
+        <div class="nav-left flex">
+            <div class="nav-logo mr-6">
+                <h1>
+                    <a routerLink="/" class="uppercase font-bold text-2xl tracking-wide">Book<span class="nav-logo--red">w</span>orm</a>
+                </h1>
+            </div>
+
+            <ul class="nav-left-menu flex mt-0.5">
+                <li class="nav-left-item mx-6 font-medium text-lg">
+                    <a routerLink="/categories">Categories</a>
+                </li>
+                <li class="nav-left-item mx-6 font-medium text-lg">
+                    <a routerLink="/about">About us</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="nav-right">
+            <ul class="nav-right-menu flex">
+                <li class="nav-right-item px-4 py-2 text-lg">
+                    <a routerLink="/favorites">
+                        <fa-icon [icon]="faHeart"></fa-icon>
+                    </a>
+                </li>
+                <li class="nav-right-item px-4 py-2 text-lg">
+                    <a routerLink="/profile">
+                        <fa-icon [icon]="faUser"></fa-icon>
+                    </a>
+                </li>
+            </ul>
+        </div>
     </nav>
 </header>

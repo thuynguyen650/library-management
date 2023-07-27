@@ -1,0 +1,41 @@
+<div class="book-item border border-r-0 hover:border hover:border-gray-900 group">
+    <a href="/">
+        <div class="book-item-top pt-custom_sm px-custom_md">
+            <img src="../../../assets/product-1.jpg" alt="book-1">
+        </div>
+    </a>
+
+    <div class="book-item-bottom mx-10 pt-4 bg-white">
+        <div>
+            <p class="category uppercase text-rose-500 text-sm">
+                <a routerLink="/">Non-fiction</a>
+            </p>
+
+            <h3 class="font-bold my-1">
+                <a href="/">
+                    Dark in Death: An Eve Dallas Novel (In Death, book 46)
+                </a>
+            </h3>
+
+            <p class="author text-gray-400 font-medium">
+                <a routerLink="/">J. D. Robb</a>
+            </p>
+
+            <p class="publisher text-lg mt-0.5">
+                <a href="/">Publisher</a>
+            </p>
+
+            <div class="book-item-action justify-between flex opacity-0 mt-4 h-0 pb-3 group-hover:opacity-100">
+                <div class="add-to-cart">
+                    <button class="uppercase font-semibold text-lg text-gray-700 pb-0.5 border-transition" (click)="add()">Add to cart</button>
+                </div>
+
+                <div class="add-to-wish-list">
+                    <button class="text-xl text-gray-700 rounded-full py-1 px-2 hover:bg-rose-500">
+                        <fa-icon [icon]="faHeart"></fa-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

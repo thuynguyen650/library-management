@@ -1,61 +1,48 @@
-import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { faPhotoFilm, faMugHot, faUserDoctor, faBook, faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons';
+import { faFaceKiss } from '@fortawesome/free-regular-svg-icons';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent {
-  books = [
-    {
-      title: "To Kill a Mockingbird",
-      author: "Harper Lee",
-      img: "../../../assets/product-1.jpg"
-    },
-    {
-      title: "1984",
-      author: "George Orwell",
-      img: "../../../assets/product-2.jpg"
-    },
-    {
-      title: "Pride and Prejudice",
-      author: "Jane Austen",
-      img: "../../../assets/product-1.jpg"
-    },
-    {
-      title: "The Great Gatsby",
-      author: "F. Scott Fitzgerald",
-      img: "../../../assets/product-1.jpg"
-    },
-    {
-      title: "The Catcher in the Rye",
-      author: "J.D. Salinger",
-      img: "../../../assets/product-1.jpg"
-    },
-    {
-      title: "To Kill a Mockingbird",
-      author: "Harper Lee",
-      img: "../../../assets/product-1.jpg"
-    },
-    {
-      title: "1984",
-      author: "George Orwell",
-      img: "../../../assets/product-1.jpg"
-    },
-    {
-      title: "Pride and Prejudice",
-      author: "Jane Austen",
-      img: "../../../assets/product-1.jpg"
-    },
-    {
-      title: "The Great Gatsby",
-      author: "F. Scott Fitzgerald",
-      img: "../../../assets/product-1.jpg"
-    },
-    {
-      title: "The Catcher in the Rye",
-      author: "J.D. Salinger",
-      img: "../../../assets/product-1.jpg"
-    }
-  ]
+export class HomeComponent implements OnInit {
+  faPhotoFilm = faPhotoFilm;
+  faMugHot = faMugHot;
+  faFaceKiss = faFaceKiss;
+  faUserDoctor = faUserDoctor;
+  faBook = faBook;
+  faChevronRight = faChevronRight;
+  faChevronLeft = faChevronLeft;
+  books: any;
+  defaultTransform = 0;
+
+  constructor(private httpClient: HttpClient) {}
+
+  ngOnInit(): void {
+    this.httpClient.get("https://localhost:7141/api/books")
+    .subscribe({
+      next: (res) => {
+        this.books = res;
+      },
+      error: (err) => console.log(err)
+    })
+  }
+  
+  
+  @ViewChild('slider', { static: true }) slider!: ElementRef<HTMLInputElement>;
+  goPrev = () => {
+    if (Math.abs(this.defaultTransform) === 0) this.defaultTransform = 0;
+    else this.defaultTransform = this.defaultTransform + 307;
+    if (Math.abs(this.defaultTransform) === 307*3) this.defaultTransform = 0;
+    this.slider.nativeElement.style.transform = `translateX(${this.defaultTransform}px)`;
+  }
+
+  goNext = () => {
+    this.defaultTransform = this.defaultTransform - 307;
+    if (Math.abs(this.defaultTransform) === 307*3) this.defaultTransform = -307*2;
+    this.slider.nativeElement.style.transform = `translateX(${this.defaultTransform}px)`;
+  }
 }

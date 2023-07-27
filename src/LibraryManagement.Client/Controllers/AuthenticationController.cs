@@ -40,11 +40,11 @@ public class AuthenticationController : ApiControllerBase
     [Route("login")]
     public async Task<IActionResult> Login(LoginCommand command)
     {
-        try
-        {
+/*        try
+        {*/
             var result = await _mediator.Send(command);
             return Ok(result);
-        }
+/*        }
         catch (InvalidOperationException ex)
         {
             return BadRequest(ex.Message);
@@ -52,6 +52,6 @@ public class AuthenticationController : ApiControllerBase
         catch (ValidationException ex)
         {
             return BadRequest(ex.Message);
-        }
+        }*/
     }
 }
