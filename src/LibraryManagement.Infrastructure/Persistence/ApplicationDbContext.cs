@@ -4,11 +4,10 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
-using System.Reflection.Emit;
 
 namespace LibraryManagement.Infrastructure.Persistence;
 
-public class ApplicationDbContext : 
+public class ApplicationDbContext :
     IdentityDbContext
     <User,
     Role,
@@ -20,7 +19,8 @@ public class ApplicationDbContext :
     IdentityUserToken<Guid>>
 {
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
-    { }
+    {
+    }
 
     public DbSet<Book> Books { get; set; }
 

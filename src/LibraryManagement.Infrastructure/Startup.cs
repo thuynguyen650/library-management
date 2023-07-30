@@ -12,7 +12,8 @@ public static class Startup
     public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
         services.AddDbContext<ApplicationDbContext>(options =>
-            options.UseSqlServer(configuration.GetConnectionString("LibraryManagementDb") ?? throw new InvalidOperationException("Connection string 'MvcMovieContext' not found.")));
+            options.UseSqlServer(
+                configuration.GetConnectionString("LibraryManagementDb") ?? throw new InvalidOperationException("Connection string 'LibraryManagementDb' not found.")));
 
         services.AddIdentity<User, Role>()
             .AddEntityFrameworkStores<ApplicationDbContext>()

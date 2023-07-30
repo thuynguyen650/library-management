@@ -9,11 +9,9 @@ public class Book : BaseAuditableEntity
 
     public List<BookCopy> BookCopies { get; set; } = new List<BookCopy>();
 
-    public Guid BookCategoryId { get; set; }
-
-    public BookCategory BookCategory { get; set; } = new BookCategory();
+    public List<BookCategory> BookCategories { get; set; } = new List<BookCategory>();
 
     public List<Author> Authors { get; set; } = new List<Author>();
 
-    public List<User> Users { get; set; } = new List<User>();
+    public List<User>? Users { get; set; }
 }
