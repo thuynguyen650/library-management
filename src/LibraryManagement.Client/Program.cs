@@ -1,6 +1,7 @@
 using LibraryManagement.Infrastructure;
 using LibraryManagement.Application;
 using System.Runtime.CompilerServices;
+using LibraryManagement.Infrastructure.Persistence;
 
 internal class Program
 {
@@ -49,6 +50,8 @@ internal class Program
         app.UseCors("OpenCORSPolicy");
         app.UseAuthentication();
         app.UseAuthorization();
+
+        DataSeeder.Seed(app);
 
         app.MapControllerRoute(
             name: "default",

@@ -11,8 +11,7 @@ public class BookCategoryConfiguration : IEntityTypeConfiguration<BookCategory>
         builder.HasKey(bookCategory => bookCategory.Id);
 
         builder.HasMany(bookCategory => bookCategory.Books)
-            .WithOne(book => book.BookCategory)
-            .HasForeignKey(book => book.BookCategoryId);
+            .WithMany(book => book.BookCategories);
 
     }
 }
