@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { faPhotoFilm, faMugHot, faUserDoctor, faBook, faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons';
-import { faFaceKiss } from '@fortawesome/free-regular-svg-icons';
+import { faCommentDots, faBrain, faGlasses, faBook, faChevronRight, faChevronLeft, faHeartCrack } from '@fortawesome/free-solid-svg-icons';
+import BookService from 'src/app/services/book.service';
+import { BookCopy } from 'src/app/models/book-copy.model';
 
 @Component({
   selector: 'app-home',
@@ -9,28 +10,25 @@ import { faFaceKiss } from '@fortawesome/free-regular-svg-icons';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  faPhotoFilm = faPhotoFilm;
-  faMugHot = faMugHot;
-  faFaceKiss = faFaceKiss;
-  faUserDoctor = faUserDoctor;
+  faCommentDots = faCommentDots;
+  faBrain = faBrain;
+  faGlasses = faGlasses;
+  faHeartCrack = faHeartCrack;
   faBook = faBook;
   faChevronRight = faChevronRight;
   faChevronLeft = faChevronLeft;
-  books: any;
+  bookCopies: BookCopy[] = [];
   defaultTransform = 0;
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private bookService: BookService) {}
 
   ngOnInit(): void {
-    this.httpClient.get("https://localhost:7141/api/books")
+    this.bookService.getAllBookCopies()
     .subscribe({
-      next: (res) => {
-        this.books = res;
-      },
+      next: (res) => this.bookCopies = res as BookCopy[],
       error: (err) => console.log(err)
-    })
+    });
   }
-  
   
   @ViewChild('slider', { static: true }) slider!: ElementRef<HTMLInputElement>;
   goPrev = () => {

@@ -9,4 +9,6 @@ public record BookCopyDetails
     public required Guid PublisherId { get; set; }
 
     public string? ImageUrl { get; set; }
+
+    public required BookDetails Book { get; set; }
 }

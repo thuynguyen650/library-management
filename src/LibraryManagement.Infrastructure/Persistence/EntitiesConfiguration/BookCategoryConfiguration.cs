@@ -9,9 +9,5 @@ public class BookCategoryConfiguration : IEntityTypeConfiguration<BookCategory>
     public void Configure(EntityTypeBuilder<BookCategory> builder)
     {
         builder.HasKey(bookCategory => bookCategory.Id);
-
-        builder.HasMany(bookCategory => bookCategory.Books)
-            .WithMany(book => book.BookCategories);
-
     }
 }

@@ -10,6 +10,7 @@ import { LoginComponent } from './authentication/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BookItemComponent } from './components/book-item/book-item.component';
+import BookService from './services/book.service';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { BookItemComponent } from './components/book-item/book-item.component';
     ReactiveFormsModule,
     FontAwesomeModule
   ],
-  providers: [],
+  providers: [BookService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

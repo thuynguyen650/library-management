@@ -1,34 +1,9 @@
-<!-- <section id="products" class="container mx-auto py-10">
-        <div  class="grid grid-cols-5" *ngFor="let book of books">
-            <div class="px-4 my-4 border-r product-item" *ngFor="let bookCopy of book.bookCopies">
-                <div class="product-item--top">
-                    <a href="#">
-                        <img src="{{ bookCopy.imageUrl }}" class="rounded-2xl" alt="{{ book.title }}">
-                    </a>
-    
-                    <div class="product-item--action">
-                        
-                    </div>
-                </div>
-    
-                <div class="product-item--bottom mt-4">
-                    <div>
-                        <a href="#" class="font-medium text-xl">{{ book.title }}</a>
-                    </div>
-                    <div *ngFor="let author of book.authors">
-                        <a href="#" class="text-gray-400 font-medium">{{ author.name }}</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-</section> -->
-
 <main>
     <section id="banner">
         <div class="container grid grid-cols-2 mx-auto py-24">
             <div class="banner-left mt-16">
                 <p class="uppercase font-bold text-lg gray">The bookworm editors</p>
-                <p class="large">Featured Books of the <strong>July</strong></p>
+                <p class="large">Featured Books of the <strong>August</strong></p>
                 <div class="mt-12">
                     <a routerLink="/categories" class="capitalize button font-semibold">See more</a>
                 </div>
@@ -50,37 +25,37 @@
             <div class="grid grid-cols-5">
                 <div class="category-item text-center font-medium text-lg px-10 py-16 bg-purple mr-4">
                     <div class="category-icon mb-4">
-                        <fa-icon [icon]="faPhotoFilm"></fa-icon>
+                        <fa-icon [icon]="faCommentDots"></fa-icon>
                     </div>
-                    Art & Photography
+                    Fiction
                 </div>
 
                 <div class="category-item text-center font-medium text-lg px-10 py-16 bg-orange mx-4">
                     <div class="category-icon mb-4">
-                        <fa-icon [icon]="faMugHot"></fa-icon>
+                        <fa-icon [icon]="faBrain"></fa-icon>
                     </div>
-                    Food & Drink
+                    Non-Fiction
                 </div>
 
                 <div class="category-item text-center font-medium text-lg px-10 py-16 bg-brown mx-4">
                     <div class="category-icon mb-4">
-                        <fa-icon [icon]="faFaceKiss"></fa-icon>
+                        <fa-icon [icon]="faBook"></fa-icon>
                     </div>
-                    Romance
+                    Mystery/Thriller
                 </div>
 
                 <div class="category-item text-center font-medium text-lg px-10 py-16 bg-green mx-4">
                     <div class="category-icon mb-4">
-                        <fa-icon [icon]="faUserDoctor"></fa-icon>
+                        <fa-icon [icon]="faGlasses"></fa-icon>
                     </div>
-                    Health
+                    Science Fiction/Fantasy
                 </div>
 
                 <div class="category-item text-center font-medium text-lg px-10 py-16 bg-pink ml-4">
                     <div class="category-icon mb-4">
-                        <fa-icon [icon]="faBook"></fa-icon>
+                        <fa-icon [icon]="faHeartCrack"></fa-icon>
                     </div>
-                    Biography
+                    Romance
                 </div>
             </div>
         </div>
@@ -89,7 +64,7 @@
     <section id="bestselling" class="pt-24">
         <div class="container mx-auto">
             <div class="flex justify-between items-center mb-6">
-                <h2 class="large font-medium">Bestselling Books</h2>
+                <h2 class="large font-medium capitalize">Recent top borrowed books</h2>
                 <a class="text-lg capitalize" routerLink="/categories">View all<fa-icon [icon]="faChevronRight"
                         class="text-2xl ml-2"></fa-icon></a>
             </div>
@@ -102,13 +77,7 @@
 
                 <div class="overflow-x-hidden overflow-y-hidden w-full h-full mx-auto">
                     <div #slider class="slick-list flex ease-in-out duration-700 border-r">
-                        <app-book-item></app-book-item>
-                        <app-book-item></app-book-item>
-                        <app-book-item></app-book-item>
-                        <app-book-item></app-book-item>
-                        <app-book-item></app-book-item>
-                        <app-book-item></app-book-item>
-                        <app-book-item></app-book-item>
+                        <app-book-item class="basis-1/4" [bookCopy]="bookCopy" *ngFor="let bookCopy of bookCopies">abc</app-book-item>
                     </div>
                 </div>
 
