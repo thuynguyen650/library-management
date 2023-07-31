@@ -15,9 +15,12 @@ public class BookConfiguration : IEntityTypeConfiguration<Book>
             .HasForeignKey(bookCopy => bookCopy.BookId);
 
         builder.HasMany(book => book.Users)
-            .WithMany(user => user.Books);
+            .WithMany();
 
         builder.HasMany(book => book.Authors)
-            .WithMany(author => author.Books);
+            .WithMany();
+
+        builder.HasMany(book => book.BookCategories)
+            .WithMany();
     }
 }

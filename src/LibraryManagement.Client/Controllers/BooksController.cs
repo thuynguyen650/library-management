@@ -14,8 +14,8 @@ public class BooksController : ApiControllerBase
     }
 
     [HttpGet]
-    public async Task<ActionResult<List<BookDetails>>> GetAllBooks()
+    public async Task<ActionResult<List<BookCopyDetails>>> GetAllBookCopies()
     {
-        return await _mediator.Send(new GetAllBooksQuery());
+        return await _mediator.Send(new GetAllBookCopiesQuery());
     }
 }

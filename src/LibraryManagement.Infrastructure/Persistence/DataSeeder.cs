@@ -176,11 +176,33 @@ namespace LibraryManagement.Infrastructure.Persistence
                         },
                         YearPublished = 2023,
                         ImageUrl = "images/product-4.jpg"
+                    },
+                    new BookCopy
+                    {
+                        Book = booksForSeed[4],
+                        Publisher = new Publisher
+                        {
+                            Name = "Crown Publishing Group 2"
+                        },
+                        YearPublished = 2023,
+                        ImageUrl = "images/product-9.jpg"
+                    },
+                    new BookCopy
+                    {
+                        Book = booksForSeed[3],
+                        Publisher = new Publisher
+                        {
+                            Name = "Crown Publishing Group 3"
+                        },
+                        YearPublished = 2023,
+                        ImageUrl = "images/product-7.jpg"
                     }
                 };
 
+                context.Database.EnsureCreated();
+
                 // use EnsureCreated before check the Book Copies
-                if (context.Database.EnsureCreated() && !context.BookCopies.Any())
+                if (!context.BookCopies.Any())
                 {
                     context.BookCopies.AddRange(bookCopiesForSeed);
 

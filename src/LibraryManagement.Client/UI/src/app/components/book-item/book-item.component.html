@@ -1,33 +1,37 @@
 <div class="book-item border border-r-0 hover:border hover:border-gray-900 group">
     <a href="/">
-        <div class="book-item-top pt-custom_sm px-custom_md">
-            <img src="../../../assets/product-1.jpg" alt="book-1">
+        <div class="book-item-top pt-custom_sm px-custom_md h-72">
+            <img src="../../../assets/{{ bookCopy.imageUrl }}" alt="book-1" class="h-full w-full">
         </div>
     </a>
 
     <div class="book-item-bottom mx-10 pt-4 bg-white">
         <div>
             <p class="category uppercase text-rose-500 text-sm">
-                <a routerLink="/">Non-fiction</a>
+                <a routerLink="/">{{ bookCopy.book.bookCategory }}</a>
             </p>
 
-            <h3 class="font-bold my-1">
+            <h3 class="font-bold my-1 h-12">
                 <a href="/">
-                    Dark in Death: An Eve Dallas Novel (In Death, book 46)
+                    {{ bookCopy.book.title }}
                 </a>
             </h3>
 
             <p class="author text-gray-400 font-medium">
-                <a routerLink="/">J. D. Robb</a>
+                <a routerLink="/" *ngFor="let author of bookCopy.book.authors; let last = last">
+                    {{author.name}}<span *ngIf="!last">, </span>
+                </a>
             </p>
 
-            <p class="publisher text-lg mt-0.5">
-                <a href="/">Publisher</a>
+            <p class="publisher text-sm italic mt-0.5">
+                <a href="/">
+                    {{ bookCopy.publisher }}
+                </a>
             </p>
 
             <div class="book-item-action justify-between flex opacity-0 mt-4 h-0 pb-3 group-hover:opacity-100">
                 <div class="add-to-cart">
-                    <button class="uppercase font-semibold text-lg text-gray-700 pb-0.5 border-transition" (click)="add()">Add to cart</button>
+                    <button class="uppercase font-semibold text-lg text-gray-700 pb-0.5 border-transition">Reserve</button>
                 </div>
 
                 <div class="add-to-wish-list">

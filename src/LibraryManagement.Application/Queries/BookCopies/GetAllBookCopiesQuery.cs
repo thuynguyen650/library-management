@@ -2,6 +2,6 @@
 
 namespace LibraryManagement.Application.Queries.BookCopies;
 
-public record GetAllBooksQuery : IRequest<List<BookDetails>>
+public record GetAllBookCopiesQuery : IRequest<List<BookCopyDetails>>
 {
 }
