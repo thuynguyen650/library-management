@@ -3,7 +3,7 @@
         <div class="container grid grid-cols-2 mx-auto py-24">
             <div class="banner-left mt-16">
                 <p class="uppercase font-bold text-lg gray">The bookworm editors</p>
-                <p class="large">Featured Books of the <strong>August</strong></p>
+                <p class="large">Featured Books of the <strong>{{ month }}</strong></p>
                 <div class="mt-12">
                     <a routerLink="/categories" class="capitalize button font-semibold">See more</a>
                 </div>
@@ -77,7 +77,7 @@
 
                 <div class="overflow-x-hidden overflow-y-hidden w-full h-full mx-auto">
                     <div #slider class="slick-list flex ease-in-out duration-700 border-r">
-                        <app-book-item class="basis-1/4" [bookCopy]="bookCopy" *ngFor="let bookCopy of bookCopies">abc</app-book-item>
+                        <app-book-item class="basis-1/4" [bookCopy]="bookCopy" *ngFor="let bookCopy of bookCopies"></app-book-item>
                     </div>
                 </div>
 
