@@ -4,13 +4,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './shared/header/header.component';
-import { SignupComponent } from './authentication/signup/signup.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { LoginComponent } from './authentication/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BookItemComponent } from './components/book-item/book-item.component';
 import BookService from './services/book.service';
+import { SignupComponent } from './pages/authentication/signup/signup.component';
+import { LoginComponent } from './pages/authentication/login/login.component';
 
 @NgModule({
   declarations: [

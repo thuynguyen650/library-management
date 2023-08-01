@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { faCommentDots, faBrain, faGlasses, faBook, faChevronRight, faChevronLeft, faHeartCrack } from '@fortawesome/free-solid-svg-icons';
 import BookService from 'src/app/services/book.service';
