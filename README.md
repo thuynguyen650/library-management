@@ -12,7 +12,3 @@ Based on the requirements, I've designed the database for the system using Crow'
 
 Bellow are all data models will be created later as well as the relationships between them:
 ![UpdatedLibraryManagementDb](https://user-images.githubusercontent.com/87921412/234430495-cb3b8d9d-ec3b-4379-bd7e-e2fd3fcf4dc9.png)
-
-* Project Architecture
-I use Clean Architecture to structure this project.
-![image](https://user-images.githubusercontent.com/87921412/236382333-e35e65a4-bf83-42e9-a462-0d9969b0cf89.png)
