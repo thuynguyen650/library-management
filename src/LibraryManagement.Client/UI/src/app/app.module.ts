@@ -11,6 +11,7 @@ import { BookItemComponent } from './components/book-item/book-item.component';
 import BookService from './services/book.service';
 import { SignupComponent } from './pages/authentication/signup/signup.component';
 import { LoginComponent } from './pages/authentication/login/login.component';
+import { AdminModule } from './admin/admin.module';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { LoginComponent } from './pages/authentication/login/login.component';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    AdminModule
   ],
   providers: [BookService],
   bootstrap: [AppComponent]

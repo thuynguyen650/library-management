@@ -1,0 +1,118 @@
+<h1 class="font-bold text-xl mb-5 uppercase">
+    <fa-icon [icon]="faFeatherPointed" class="mr-4 text-2xl"></fa-icon>
+    Bookworm
+</h1>
+
+<div id="sidebar">
+    <ul class="sidebar-menu text-lg">
+        <li class="mb-3">
+            <a routerLink="/dashboard" class="flex items-center">
+                <fa-icon [icon]="faHouse" class="mr-3 text-sm"></fa-icon>
+                Dashboard
+            </a>
+        </li>
+        <li>
+            <button data-te-collapse-init data-te-collapse-collapsed data-te-target="#collapseBook"
+                aria-expanded="false" aria-controls="collapseBook"
+                class="w-full flex justify-between items-center mb-3">
+                <div>
+                    <fa-icon [icon]="faBookOpen" class="mr-2 text-sm"></fa-icon>
+                    Book
+                </div>
+                <fa-icon [icon]="faChevronDown" class="mr-2 text-sm"></fa-icon>
+            </button>
+
+            <ul class="sidebar-menu--books ml-7 text-base !visible hidden" id="collapseBook" data-te-collapse-item>
+                <li class="mb-2">
+                    <a routerLink="/book-list">Book Copy List</a>
+                </li>
+                <li class="mb-2">
+                    <a routerLink="/book-list">Book Copy Add</a>
+                </li>
+                <li class="mb-2">
+                    <a routerLink="/book-list">Book List</a>
+                </li>
+
+                <li class="mb-3">
+                    <a routerLink="/book-list">Book Add</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <button data-te-collapse-init data-te-target="#collapseBookCategory" aria-expanded="false"
+                aria-controls="collapseBookCategory" class="w-full flex justify-between items-center mb-3">
+                <div>
+                    <fa-icon [icon]="faCopy" class="mr-3 text-sm"></fa-icon>
+                    Book Category
+                </div>
+                <fa-icon [icon]="faChevronDown" class="mr-2 text-sm"></fa-icon>
+            </button>
+
+            <ul class="sidebar-menu--books ml-7 text-base !visible hidden" id="collapseBookCategory" data-te-collapse-item>
+                <li class="mb-2">
+                    <a routerLink="/book-list">Book Category List</a>
+                </li>
+                <li class="mb-3">
+                    <a routerLink="/book-list">Book Category Add</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <button data-te-collapse-init data-te-target="#collapseAuthor" aria-expanded="false"
+                aria-controls="collapseAuthor" class="w-full flex justify-between items-center mb-3">
+                <div>
+                    <fa-icon [icon]="faUserPen" class="mr-2 text-sm"></fa-icon>
+                    Author
+                </div>
+                <fa-icon [icon]="faChevronDown" class="mr-2 text-sm"></fa-icon>
+            </button>
+
+            <ul class="sidebar-menu--books ml-7 text-base !visible hidden" id="collapseAuthor" data-te-collapse-item>
+                <li class="mb-2">
+                    <a routerLink="/book-list">Author List</a>
+                </li>
+                <li class="mb-3">
+                    <a routerLink="/book-list">Author Add</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <button data-te-collapse-init data-te-target="#collapsePublisher" aria-expanded="false"
+                aria-controls="collapsePublisher" class="w-full flex justify-between items-center mb-3">
+                <div>
+                    <fa-icon [icon]="faDoorOpen" class="mr-2 text-sm"></fa-icon>
+                    Publisher
+                </div>
+                <fa-icon [icon]="faChevronDown" class="mr-2 text-sm"></fa-icon>
+            </button>
+
+            <ul class="sidebar-menu--books ml-7 text-base !visible hidden" id="collapsePublisher" data-te-collapse-item>
+                <li class="mb-2">
+                    <a routerLink="/book-list">Publisher List</a>
+                </li>
+                <li class="mb-3">
+                    <a routerLink="/book-list">Publisher Add</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <button data-te-collapse-init data-te-target="#collapsePatron" aria-expanded="false"
+                aria-controls="collapsePatron" class="w-full flex justify-between items-center mb-3">
+                <div>
+                    <fa-icon [icon]="faUsersLine" class="mr-2 text-sm"></fa-icon>
+                    Patron
+                </div>
+                <fa-icon [icon]="faChevronDown" class="mr-2 text-sm"></fa-icon>
+            </button>
+
+            <ul class="sidebar-menu--books ml-7 text-base !visible hidden" id="collapsePatron" data-te-collapse-item>
+                <li class="mb-2">
+                    <a routerLink="/book-list">Patron List</a>
+                </li>
+                <li class="mb-3">
+                    <a routerLink="/book-list">Patron Add</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
