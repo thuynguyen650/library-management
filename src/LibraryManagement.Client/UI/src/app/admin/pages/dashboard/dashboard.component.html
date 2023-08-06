@@ -1,0 +1,27 @@
+<div class="flex p-6 bg-gray-50">
+    <app-side-bar
+        class="basis-1/6 bg-violet-600 text-white p-6 rounded-2xl h-screen_exclude_header mr-10"></app-side-bar>
+    <div class="basis-5/6">
+        <div class="statistic-top grid grid-cols-4 gap-x-4">
+            <app-statistic-tag [backgroundColor]="'bg-emerald-100'" [borderColor]="'border-emerald-200'"
+                [iconBackgroundColor]="'bg-emerald-600'" [textColor]="'text-emerald-700'"
+                [name]="'books'" [statistic]="11122"></app-statistic-tag>
+            <app-statistic-tag [backgroundColor]="'bg-pink-100'" [borderColor]="'border-pink-200'"
+                [iconBackgroundColor]="'bg-pink-600'" [textColor]="'text-pink-700'"
+                [faIcon]="faCopy"
+                [name]="'book copies'" [statistic]="9831122"></app-statistic-tag>
+            <app-statistic-tag [backgroundColor]="'bg-amber-100'" [borderColor]="'border-amber-200'"
+                [iconBackgroundColor]="'bg-amber-600'" [textColor]="'text-amber-700'"
+                [faIcon]="faHouseCircleCheck"
+                [name]="'publishers'" [statistic]="23"></app-statistic-tag>
+            <app-statistic-tag [backgroundColor]="'bg-violet-100'" [borderColor]="'border-violet-200'"
+                [iconBackgroundColor]="'bg-violet-600'" [textColor]="'text-violet-700'"
+                [faIcon]="faUserCheck"
+                [name]="'patrons'" [statistic]="234"></app-statistic-tag>
+        </div>
+
+        <div class="statistic-main">
+            
+        </div>
+    </div>
+</div>
