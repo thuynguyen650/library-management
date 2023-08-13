@@ -58,17 +58,15 @@
                 <div class="form-group flex flex-col mt-4">
                     <label for="author" class="font-semibold mb-2">Author</label>
                     <select data-te-select-init data-te-select-filter="true" multiple>
-                        <option value="US">United States</option>
-                        <option value="CS"> States</option>
-                        <option value="XUS">Unitetes</option>
-                        <option value="US">Uns</option>
+                        <option selected value="">Select author</option>
+                        <option *ngFor="let author of authors" value="{{ author.name }}">{{ author.name }}</option>
                     </select>
                 </div>
 
                 <div class="form-group flex flex-col mt-4">
                     <label for="category" class="font-semibold mb-2">Category</label>
                     <select data-te-select-init data-te-select-filter="true" multiple>
-                        <option value="US">United States</option>
+                        <option selected value="">Choose author</option>
                         <option value="CS"> States</option>
                         <option value="XUS">Unitetes</option>
                         <option value="US">Uns</option>
