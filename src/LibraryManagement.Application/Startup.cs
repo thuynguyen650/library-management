@@ -1,6 +1,4 @@
-﻿using LibraryManagement.Domain.Entities.Authentication;
-using LibraryManagement.Infrastructure.Persistence;
-using Microsoft.AspNetCore.Identity;
+﻿using LibraryManagement.Application.Contracts.Persistence;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 

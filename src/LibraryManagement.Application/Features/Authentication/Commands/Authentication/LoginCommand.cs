@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using System.IdentityModel.Tokens.Jwt;
 
-namespace LibraryManagement.Application.Commands.Authentication;
+namespace LibraryManagement.Application.Features.Authentication.Commands.Authentication;
 
 public record LoginCommand : IRequest<string>
 {

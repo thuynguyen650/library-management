@@ -1,12 +1,12 @@
 ﻿using AutoMapper;
-using LibraryManagement.Application.Commands.Authentication;
+using LibraryManagement.Application.Features.Authentication.Commands.Authentication;
 using LibraryManagement.Domain.Entities.Authentication;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using System.ComponentModel.DataAnnotations;
 
-namespace LibraryManagement.Application.CommandHandlers.Authentication;
+namespace LibraryManagement.Application.Features.Authentication.CommandHandlers.Authentication;
 
 public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, Guid>
 {

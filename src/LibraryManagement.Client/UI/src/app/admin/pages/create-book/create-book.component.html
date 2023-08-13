@@ -1,0 +1,80 @@
+<div class="flex p-6 bg-gray-50">
+    <app-side-bar
+        class="basis-1/6 bg-violet-600 text-white p-6 rounded-2xl h-screen_exclude_header mr-10"></app-side-bar>
+
+    <div class="create-book basis-5/6">
+        <div class="create-top flex justify-between border-b py-4">
+            <h1 class="text-3xl font-bold">Books Add</h1>
+            <button class="bg-violet-600 text-white uppercase px-8 rounded">Save</button>
+        </div>
+
+        <div class="create-main flex gap-4 py-4">
+            <div class="create-main--left basis-1/3 bg-white p-4 mb-4 rounded border">
+                <h2 class="font-bold text-lg">Details</h2>
+
+                <div class="form-group flex flex-col mt-4">
+                    <label for="language" class="font-semibold mb-2">Language</label>
+                    <select data-te-select-init data-te-select-filter="true">
+                        <option value="US">United States</option>
+                        <option value="CS"> States</option>
+                        <option value="XUS">Unitetes</option>
+                        <option value="US">Uns</option>
+                    </select>
+                </div>
+
+                <div class="form-group flex flex-col mt-4">
+                    <label for="pageNumber" class="font-semibold mb-2">Page number</label>
+                    <input type="number" name="pageNumber" id="pageNumber"
+                        class="border p-2 rounded focus:outline-none focus:border-violet-600 focus:shadow focus:shadow-gray-200">
+                </div>
+
+                <div class="form-group flex flex-col mt-4">
+                    <label for="keyword" class="font-semibold mb-2">Keywords/ Tags</label>
+                    <input type="text" name="keyword" id="keyword"
+                        class="border p-2 rounded focus:outline-none focus:border-violet-600 focus:shadow focus:shadow-gray-200">
+                </div>
+            </div>
+            <div class="create-main--right basis-2/3 bg-white p-4 mb-4 rounded border">
+                <h2 class="font-bold text-lg">Basic Information</h2>
+
+                <div class="form-group flex flex-col mt-4">
+                    <label for="title" class="font-semibold mb-2">Title</label>
+                    <input type="text" name="title" id="title"
+                        class="border p-2 rounded focus:outline-none focus:border-violet-600 focus:shadow focus:shadow-gray-200">
+                </div>
+
+                <div class="form-group flex flex-col mt-4">
+                    <label for="isbn" class="font-semibold mb-2">ISBN</label>
+                    <input type="text" name="isbn" id="isbn"
+                        class="border p-2 rounded focus:outline-none focus:border-violet-600 focus:shadow focus:shadow-gray-200">
+                </div>
+
+                <div class="form-group flex flex-col mt-4">
+                    <label for="description" class="font-semibold mb-2">Description</label>
+                    <textarea name="description" id="description"
+                        class="border p-2 rounded focus:outline-none focus:border-violet-600 focus:shadow focus:shadow-gray-200"></textarea>
+                </div>
+
+                <div class="form-group flex flex-col mt-4">
+                    <label for="author" class="font-semibold mb-2">Author</label>
+                    <select data-te-select-init data-te-select-filter="true" multiple>
+                        <option value="US">United States</option>
+                        <option value="CS"> States</option>
+                        <option value="XUS">Unitetes</option>
+                        <option value="US">Uns</option>
+                    </select>
+                </div>
+
+                <div class="form-group flex flex-col mt-4">
+                    <label for="category" class="font-semibold mb-2">Category</label>
+                    <select data-te-select-init data-te-select-filter="true" multiple>
+                        <option value="US">United States</option>
+                        <option value="CS"> States</option>
+                        <option value="XUS">Unitetes</option>
+                        <option value="US">Uns</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using LibraryManagement.Application.Queries.BookCopies;
+using LibraryManagement.Application.Features.BookCopies.Queries.BookCopies;
 using LibraryManagement.Domain.Entities;
 
-namespace LibraryManagement.Application.QueryHandlers.BookCopies;
+namespace LibraryManagement.Application.Features.BookCopies.QueryHandlers.BookCopies;
 
 public class GetAllBookCopiesQueryMapper : Profile
 {
@@ -18,7 +18,7 @@ public class GetAllBookCopiesQueryMapper : Profile
         CreateMap<Author, AuthorDetails>();
     }
 
-    private string JoinCategories (List<string> categories)
+    private string JoinCategories(List<string> categories)
     {
         return string.Join(", ", categories);
     }

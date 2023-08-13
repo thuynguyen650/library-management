@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace LibraryManagement.Application.Queries.BookCopies;
+namespace LibraryManagement.Application.Features.BookCopies.Queries.BookCopies;
 
 public record GetAllBookCopiesQuery : IRequest<List<BookCopyDetails>>
 {

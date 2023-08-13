@@ -1,4 +1,4 @@
-﻿using LibraryManagement.Application.Commands.Authentication;
+﻿using LibraryManagement.Application.Features.Authentication.Commands.Authentication;
 using LibraryManagement.Domain.Entities.Authentication;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
@@ -9,12 +9,8 @@ namespace LibraryManagement.Client.Controllers;
 
 public class AuthenticationController : ApiControllerBase
 {
-    private readonly ISender _mediator;
-
-    public AuthenticationController(
-        ISender mediator)
+    public AuthenticationController(ISender mediator) : base(mediator)
     {
-        _mediator = mediator;
     }
 
     [HttpPost]

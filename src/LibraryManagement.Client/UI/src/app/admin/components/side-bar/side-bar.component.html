@@ -6,7 +6,7 @@
 <div id="sidebar">
     <ul class="sidebar-menu text-lg">
         <li class="mb-3">
-            <a routerLink="/dashboard" class="flex items-center">
+            <a routerLink="/admin/dashboard" class="flex items-center">
                 <fa-icon [icon]="faHouse" class="mr-3 text-sm"></fa-icon>
                 Dashboard
             </a>
@@ -24,17 +24,11 @@
 
             <ul class="sidebar-menu--books ml-7 text-base !visible hidden" id="collapseBook" data-te-collapse-item>
                 <li class="mb-2">
-                    <a routerLink="/book-list">Book Copy List</a>
-                </li>
-                <li class="mb-2">
-                    <a routerLink="/book-list">Book Copy Add</a>
-                </li>
-                <li class="mb-2">
                     <a routerLink="/book-list">Book List</a>
                 </li>
 
                 <li class="mb-3">
-                    <a routerLink="/book-list">Book Add</a>
+                    <a routerLink="/admin/books/create">Book Add</a>
                 </li>
             </ul>
         </li>

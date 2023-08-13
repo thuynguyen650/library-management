@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace LibraryManagement.Application.Commands.Authentication;
+namespace LibraryManagement.Application.Features.Authentication.Commands.Authentication;
 
 public record CreateUserCommand : IRequest<Guid>
 {

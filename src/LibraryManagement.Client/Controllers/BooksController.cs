@@ -1,4 +1,4 @@
-﻿using LibraryManagement.Application.Queries.BookCopies;
+﻿using LibraryManagement.Application.Features.BookCopies.Queries.BookCopies;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -6,11 +6,8 @@ namespace LibraryManagement.Client.Controllers;
 
 public class BooksController : ApiControllerBase
 {
-    private readonly ISender _mediator;
-
-    public BooksController(ISender mediator)
+    public BooksController(ISender mediator) : base(mediator)
     {
-        _mediator = mediator;
     }
 
     [HttpGet]

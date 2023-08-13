@@ -1,5 +1,7 @@
-﻿using LibraryManagement.Domain.Entities.Authentication;
+﻿using LibraryManagement.Application.Contracts.Persistence;
+using LibraryManagement.Domain.Entities.Authentication;
 using LibraryManagement.Infrastructure.Persistence;
+using LibraryManagement.Infrastructure.Persistence.Repositories;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -27,6 +29,11 @@ public static class Startup
             options.Password.RequireUppercase = true;
             options.Password.RequiredLength = 6;
         });
+
+        services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+        // TODO: fix this by adding only type of generic repository
+        services.AddScoped<IAuthorRepository, AuthorRepository>();
+        services.AddScoped<IBookCopyRepository, BookCopyRepository>();
 
         return services;
     }

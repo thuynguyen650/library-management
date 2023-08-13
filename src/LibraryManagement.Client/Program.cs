@@ -2,6 +2,8 @@ using LibraryManagement.Infrastructure;
 using LibraryManagement.Application;
 using System.Runtime.CompilerServices;
 using LibraryManagement.Infrastructure.Persistence;
+using LibraryManagement.Application.Contracts.Persistence;
+using LibraryManagement.Infrastructure.Persistence.Repositories;
 
 internal class Program
 {
