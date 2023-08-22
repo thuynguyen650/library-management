@@ -6,7 +6,7 @@ namespace LibraryManagement.Infrastructure.Persistence.Repositories;
 
 public class GenericRepository<T> : IGenericRepository<T> where T : BaseAuditableEntity
 {
-    private readonly ApplicationDbContext _context;
+    protected readonly ApplicationDbContext _context;
 
     public GenericRepository(ApplicationDbContext context)
     {
@@ -16,5 +16,11 @@ public class GenericRepository<T> : IGenericRepository<T> where T : BaseAuditabl
     public async Task<List<T>> GetAllAsync()
     {
         return await _context.Set<T>().ToListAsync();
+    }
+
+    public async Task CreateAsync(T entity)
+    {
+        await _context.AddAsync(entity);
+        await _context.SaveChangesAsync();
     }
 }

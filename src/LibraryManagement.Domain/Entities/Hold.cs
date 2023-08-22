@@ -7,7 +7,7 @@ public class Hold
 {
     public Guid BookCopyId { get; set; }
 
-    public BookCopy BookCopy { get; set; } = new BookCopy();
+    public required BookCopy BookCopy { get; set; }
 
     public Guid UserId { get; set; }
 

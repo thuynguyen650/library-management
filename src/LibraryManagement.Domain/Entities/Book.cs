@@ -5,7 +5,17 @@ namespace LibraryManagement.Domain.Entities;
 
 public class Book : BaseAuditableEntity
 {
-    public string Title { get; set; } = string.Empty;
+    public required string Title { get; set; }
+
+    public required string ISBN { get; set; }
+
+    public string? Description { get; set; }
+
+    public string? Language { get; set; }
+
+    public long? PageNumber { get; set; }
+
+    public List<Keyword> Tags { get; set; } = new List<Keyword>();
 
     public List<BookCopy> BookCopies { get; set; } = new List<BookCopy>();
 

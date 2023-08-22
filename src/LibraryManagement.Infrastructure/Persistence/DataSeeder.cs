@@ -20,6 +20,7 @@ namespace LibraryManagement.Infrastructure.Persistence
                     new Book
                     {
                         Title = "To Kill a Mockingbird",
+                        ISBN = "123456789011",
                         BookCategories = new List<BookCategory>
                         {
                             new BookCategory
@@ -42,6 +43,7 @@ namespace LibraryManagement.Infrastructure.Persistence
                     new Book
                     {
                         Title = "Harry Potter and the Sorcerer's Stone",
+                        ISBN = "123456789012",
                         BookCategories = new List<BookCategory>
                         {
                             new BookCategory
@@ -64,6 +66,7 @@ namespace LibraryManagement.Infrastructure.Persistence
                     new Book
                     {
                         Title = "The Alchemist",
+                        ISBN = "123456789013",
                         BookCategories = new List<BookCategory>
                         {
                             new BookCategory
@@ -86,6 +89,7 @@ namespace LibraryManagement.Infrastructure.Persistence
                     new Book
                     {
                         Title = "1984",
+                        ISBN = "123456789014",
                         BookCategories = new List<BookCategory>
                         {
                             new BookCategory
@@ -104,6 +108,7 @@ namespace LibraryManagement.Infrastructure.Persistence
                     new Book
                     {
                         Title = "Becoming",
+                        ISBN = "123456789015",
                         BookCategories = new List<BookCategory>
                         {
                             new BookCategory

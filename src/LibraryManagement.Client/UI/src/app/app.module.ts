@@ -12,7 +12,8 @@ import BookService from './services/book.service';
 import { SignupComponent } from './pages/authentication/signup/signup.component';
 import { LoginComponent } from './pages/authentication/login/login.component';
 import { AdminModule } from './admin/admin.module';
-import BookCategoryService from './services/author.service';
+import AuthorService from './services/author.service';
+import BookCategoryService from './services/book-category.service';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,7 @@ import BookCategoryService from './services/author.service';
     FontAwesomeModule,
     AdminModule
   ],
-  providers: [BookService, BookCategoryService],
+  providers: [BookService, BookCategoryService, AuthorService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -34,6 +34,8 @@ public static class Startup
         // TODO: fix this by adding only type of generic repository
         services.AddScoped<IAuthorRepository, AuthorRepository>();
         services.AddScoped<IBookCopyRepository, BookCopyRepository>();
+        services.AddScoped<IBookCategoryRepository, BookCategoryRepository>();
+        services.AddScoped<IBookRepository, BookRepository>();
 
         return services;
     }

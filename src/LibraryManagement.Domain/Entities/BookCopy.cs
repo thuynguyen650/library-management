@@ -6,7 +6,7 @@ public class BookCopy : BaseAuditableEntity
 {
     public Guid BookId { get; set; }
 
-    public Book Book { get; set; } = new Book();
+    public required Book Book { get; set; }
 
     public Guid PublisherId { get; set; }
 
