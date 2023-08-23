@@ -6,7 +6,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { StatisticTagComponent } from './components/statistic-tag/statistic-tag.component';
 import { CreateBookComponent } from './pages/create-book/create-book.component';
 import { AppRoutingModule } from '../app-routing.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,6 +19,7 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     FontAwesomeModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     FormsModule
   ]
 })
