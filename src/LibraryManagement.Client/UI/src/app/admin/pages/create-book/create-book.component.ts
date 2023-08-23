@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, NgForm } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, NgForm } from '@angular/forms';
 import Author from 'src/app/models/author.model';
 import BookCategory from 'src/app/models/book-category.model';
 import AuthorService from 'src/app/services/author.service';
@@ -18,22 +18,22 @@ export class CreateBookComponent implements OnInit {
   authors: Author[] = [];
   bookCategories: BookCategory[] = [];
   
-  bookCreateForm: FormGroup = new FormGroup({
-    detailsInformation: new FormGroup({
-      language: new FormControl(''),
-      pageNumber: new FormControl(0),
-      keywords: new FormControl([])
+  bookCreateForm: FormGroup = this.formBuilder.group({
+    detailsInformation: this.formBuilder.group({
+      language: [''],
+      pageNumber: [],
+      keywords: []
     }),
-    basicInformation: new FormGroup({
-      title: new FormControl(''),
-      isbn: new FormControl(''),
-      description: new FormControl(''),
-      authors: new FormControl([]),
-      categories: new FormControl([])
+    basicInformation: this.formBuilder.group({
+      title: [''],
+      isbn: [''],
+      description: [''],
+      authors: [[]],
+      categories: [[]]
     })
   });
 
-  constructor(private authorService: AuthorService, private bookCategoryService: BookCategoryService) {
+  constructor(private authorService: AuthorService, private bookCategoryService: BookCategoryService, private formBuilder: FormBuilder) {
   }
 
   ngOnInit () {
