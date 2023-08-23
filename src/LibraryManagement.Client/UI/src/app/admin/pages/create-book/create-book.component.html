@@ -2,10 +2,10 @@
     <app-side-bar
         class="basis-1/6 bg-violet-600 text-white p-6 rounded-2xl h-screen_exclude_header mr-10"></app-side-bar>
 
-    <div class="create-book basis-5/6">
+    <form #createBookForm="ngForm" (ngSubmit)="createBook(createBookForm)" class="create-book basis-5/6">
         <div class="create-top flex justify-between border-b py-4">
             <h1 class="text-3xl font-bold">Books Add</h1>
-            <button class="bg-violet-600 text-white uppercase px-8 rounded">Save</button>
+            <button class="bg-violet-600 text-white uppercase px-8 rounded" type="submit">Save</button>
         </div>
 
         <div class="create-main flex gap-4 py-4">
@@ -14,7 +14,7 @@
 
                 <div class="form-group flex flex-col mt-4">
                     <label for="language" class="font-semibold mb-2">Language</label>
-                    <select data-te-select-init data-te-select-filter="true">
+                    <select data-te-select-init data-te-select-filter="true" ngModel name="language">
                         <option value="US">United States</option>
                         <option value="CS"> States</option>
                         <option value="XUS">Unitetes</option>
@@ -24,13 +24,13 @@
 
                 <div class="form-group flex flex-col mt-4">
                     <label for="pageNumber" class="font-semibold mb-2">Page number</label>
-                    <input type="number" name="pageNumber" id="pageNumber"
+                    <input type="number" name="pageNumber" id="pageNumber" ngModel
                         class="border p-2 rounded focus:outline-none focus:border-violet-600 focus:shadow focus:shadow-gray-200">
                 </div>
 
                 <div class="form-group flex flex-col mt-4">
                     <label for="keyword" class="font-semibold mb-2">Keywords/ Tags</label>
-                    <input type="text" name="keyword" id="keyword"
+                    <input type="text" name="keyword" id="keyword" ngModel
                         class="border p-2 rounded focus:outline-none focus:border-violet-600 focus:shadow focus:shadow-gray-200">
                 </div>
             </div>
@@ -39,25 +39,25 @@
 
                 <div class="form-group flex flex-col mt-4">
                     <label for="title" class="font-semibold mb-2">Title</label>
-                    <input type="text" name="title" id="title"
+                    <input type="text" name="title" id="title" ngModel
                         class="border p-2 rounded focus:outline-none focus:border-violet-600 focus:shadow focus:shadow-gray-200">
                 </div>
 
                 <div class="form-group flex flex-col mt-4">
                     <label for="isbn" class="font-semibold mb-2">ISBN</label>
-                    <input type="text" name="isbn" id="isbn"
+                    <input type="text" name="isbn" id="isbn" ngModel
                         class="border p-2 rounded focus:outline-none focus:border-violet-600 focus:shadow focus:shadow-gray-200">
                 </div>
 
                 <div class="form-group flex flex-col mt-4">
                     <label for="description" class="font-semibold mb-2">Description</label>
-                    <textarea name="description" id="description"
+                    <textarea name="description" id="description" ngModel
                         class="border p-2 rounded focus:outline-none focus:border-violet-600 focus:shadow focus:shadow-gray-200"></textarea>
                 </div>
 
                 <div class="form-group flex flex-col mt-4">
                     <label for="author" class="font-semibold mb-2">Author</label>
-                    <select data-te-select-init data-te-select-filter="true" multiple>
+                    <select data-te-select-init data-te-select-filter="true" multiple name="authors" ngModel>
                         <option selected value="">Select author</option>
                         <option *ngFor="let author of authors" value="{{ author.name }}">{{ author.name }}</option>
                     </select>
@@ -65,7 +65,7 @@
 
                 <div class="form-group flex flex-col mt-4">
                     <label for="category" class="font-semibold mb-2">Category</label>
-                    <select data-te-select-init data-te-select-filter="true" multiple>
+                    <select data-te-select-init data-te-select-filter="true" multiple name="categories" ngModel>
                         <option selected value="">Select category</option>
                         <option *ngFor="let category of bookCategories" value="{{ category.name }}">{{ category.name }}
                         </option>
@@ -73,5 +73,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    </form>
 </div>

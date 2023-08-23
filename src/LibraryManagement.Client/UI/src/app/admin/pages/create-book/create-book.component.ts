@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import Author from 'src/app/models/author.model';
 import BookCategory from 'src/app/models/book-category.model';
 import AuthorService from 'src/app/services/author.service';
@@ -41,5 +42,9 @@ export class CreateBookComponent implements OnInit {
       next: res => this.bookCategories = res as BookCategory[],
       error: err => console.log(err)
     })
+  }
+
+  createBook(createBookForm: NgForm): void {
+    console.log(createBookForm.value);
   }
 }
